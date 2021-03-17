@@ -48,7 +48,7 @@ class sample : public framework
 {
 public:
 	sample(int argc, char* argv[]) :
-		framework(argc, argv, "gl-320-glsl-uniform-align", framework::CORE, 3, 2)
+		framework(argc, argv, "gl-320-glsl-uniform-align", framework::CORE, 3, 2, 1)
 	{}
 
 private:
@@ -98,8 +98,8 @@ private:
 			GLint BlockDataSize = 0;
 			glGetActiveUniformBlockiv(ProgramName, UniformTest1, GL_UNIFORM_BLOCK_DATA_SIZE, &BlockDataSize);
 
-			// D3D returns 40, GL returns 48
-			Validated = Validated && BlockDataSize == 48;
+			// D3D returns 40, GL returns 40
+			Validated = Validated && BlockDataSize == 40;
 		}
 
 		if (Validated)
@@ -131,8 +131,8 @@ private:
 			GLint BlockDataSize = 0;
 			glGetActiveUniformBlockiv(ProgramName, UniformTest, GL_UNIFORM_BLOCK_DATA_SIZE, &BlockDataSize);
 
-			// D3D returns 16, GL returns 32
-			Validated = Validated && BlockDataSize == 32;
+			// D3D returns 16, GL returns 20
+			Validated = Validated && BlockDataSize == 20;
 		}
 
 		if (Validated)
@@ -142,8 +142,8 @@ private:
 			GLint BlockDataSize = 0;
 			glGetActiveUniformBlockiv(ProgramName, UniformTest, GL_UNIFORM_BLOCK_DATA_SIZE, &BlockDataSize);
 
-			// D3D returns 32, GL returns 32
-			Validated = Validated && BlockDataSize == 32;
+			// D3D returns 32, GL returns 24
+			Validated = Validated && BlockDataSize == 24;
 		}
 
 		if (Validated)
@@ -164,8 +164,8 @@ private:
 			GLint BlockDataSize = 0;
 			glGetActiveUniformBlockiv(ProgramName, UniformTest, GL_UNIFORM_BLOCK_DATA_SIZE, &BlockDataSize);
 
-			// D3D returns 16, GL returns 32
-			Validated = Validated && BlockDataSize == 32;
+			// D3D returns 16, GL returns 28
+			Validated = Validated && BlockDataSize == 28;
 		}
 
 		if (Validated)
@@ -175,8 +175,8 @@ private:
 			GLint BlockDataSize = 0;
 			glGetActiveUniformBlockiv(ProgramName, UniformTest, GL_UNIFORM_BLOCK_DATA_SIZE, &BlockDataSize);
 
-			// D3D returns 32, GL returns 32
-			Validated = Validated && BlockDataSize == 32;
+			// D3D returns 32, GL returns 28
+			Validated = Validated && BlockDataSize == 28;
 		}
 
 		if (Validated)
@@ -208,8 +208,8 @@ private:
 			GLint BlockDataSize = 0;
 			glGetActiveUniformBlockiv(ProgramName, UniformTest, GL_UNIFORM_BLOCK_DATA_SIZE, &BlockDataSize);
 
-			// D3D returns 48, GL returns 48
-			Validated = Validated && BlockDataSize == 48;
+			// D3D returns 48, GL returns 36
+			Validated = Validated && BlockDataSize == 36;
 		}
 
 		return Validated && this->checkError("initProgram");

@@ -65,32 +65,33 @@ uniform test7
 	vec3 c; // starts a new vector
 } Test7;
 
+struct D8{
+	vec4 b; // starts a new vector
+	float c; // starts a new vector
+} ;
 uniform test8
 {
 	float a;
-
-	struct{
-		vec4 b; // starts a new vector
-		float c; // starts a new vector
-	} d;
+	D8 d;
 } Test8;
 
+struct D9{
+	float b; // starts a new vector
+	vec4 c; // starts a new vector
+} ;
 uniform test9
 {
 	float a;
-	struct{
-		float b; // starts a new vector
-		vec4 c; // starts a new vector
-	} d;
+	D9 d;
 } Test9;
 
+struct C10{
+	vec4 a;
+	float b; // starts a new vector
+} ;
 uniform test10
 {
-	struct{
-		vec4 a;
-		float b; // starts a new vector
-	} c;
-
+	C10 c;
 	float d; // starts a new vector
 } Test10;
 
