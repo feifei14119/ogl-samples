@@ -217,10 +217,16 @@ int framework::operator()()
 	if (Result == EXIT_SUCCESS)
 		Result = this->end() && (Result == EXIT_SUCCESS) ? EXIT_SUCCESS : EXIT_FAILURE;
 
-	if(this->Success == GENERATE_ERROR)
+	if (this->Success == GENERATE_ERROR)
+	{
+		fprintf(stdout, "test result: %s\n", (Result != EXIT_SUCCESS || this->Error) ? "SUCCESS" : "FAILURE");
 		return (Result != EXIT_SUCCESS || this->Error) ? EXIT_SUCCESS : EXIT_FAILURE;
+	}
 	else
+	{
+		fprintf(stdout, "test result: %s\n", (Result == EXIT_SUCCESS && !this->Error) ? "SUCCESS" : "FAILURE");
 		return (Result == EXIT_SUCCESS && !this->Error) ? EXIT_SUCCESS : EXIT_FAILURE;
+	}
 }
 
 void framework::swap()
