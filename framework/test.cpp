@@ -633,6 +633,9 @@ bool framework::checkTemplate(GLFWwindow* pWindow, char const* Title)
 	{
 		gli::texture Template(load_png((getDataDirectory() + "templates/" + Title + ".png").c_str()));
 
+		if (Template.empty())
+			fprintf(stdout, "test result: MISSING REFFERENCE\n");
+
 		if(Success)
 			Success = Success && !Template.empty();
 
