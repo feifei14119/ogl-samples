@@ -9,13 +9,15 @@ uniform mat4 MVP;
 in vec2 Position;
 in vec2 Texcoord;
 
-out block
+/*out block
 {
 	vec2 Texcoord;
-} Vert;
+} Vert;*/
+out vec2 vTexcoord;
 
 void main()
 {
-	Vert.Texcoord = Texcoord;
+	//Vert.Texcoord = Texcoord;
+	vTexcoord = Texcoord;
 	gl_Position = MVP * vec4(Position, 0.0, 1.0);
 }
