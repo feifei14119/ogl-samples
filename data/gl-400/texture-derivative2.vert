@@ -12,13 +12,15 @@ uniform transform
 in vec2 Position;
 in vec2 Texcoord;
 
-out block
+/*out block
 {
 	vec2 Texcoord;
-} Out;
+} Out;*/
+out vec2 vTexcoord;
 
 void main()
 {	
-	Out.Texcoord = Texcoord;
+	//Out.Texcoord = Texcoord;
+	vTexcoord = Texcoord;
 	gl_Position = Transform.MVP * vec4(Position, 0.0, 1.0);
 }
