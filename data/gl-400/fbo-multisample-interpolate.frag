@@ -6,16 +6,12 @@ layout(std140, column_major) uniform;
 
 uniform sampler2D Diffuse;
 
-/*in block
-{
-	vec2 Texcoord;
-} Vert;*/
 in vec2 vTexcoord;
 
 out vec4 Color;
 
 void main()
 {
-	//Color = texture(Diffuse, interpolateAtSample(Vert.Texcoord, gl_SampleID));
+	// TODO: interpolatation param issue hasn't been updated in specification
 	Color = texture(Diffuse, interpolateAtSample(vTexcoord, gl_SampleID));
 }

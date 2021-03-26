@@ -9,10 +9,6 @@ layout(std140, column_major) uniform;
 uniform sampler2D Diffuse;
 uniform bool UseGrad;
 
-/*in block
-{
-	vec2 Texcoord;
-} In;*/
 in vec2 vTexcoord;
 
 out vec4 Color;
@@ -23,11 +19,7 @@ void main()
 {
 	if(UseGrad)
 	{
-		//vec2 Texcoord00 = interpolateAtOffset(In.Texcoord, vec2(-0.5,-0.5));
-		//vec2 Texcoord10 = interpolateAtOffset(In.Texcoord, vec2( 0.5,-0.5));
-		//vec2 Texcoord11 = interpolateAtOffset(In.Texcoord, vec2( 0.5, 0.5));
-		//vec2 Texcoord01 = interpolateAtOffset(In.Texcoord, vec2(-0.5, 0.5));
-		//Color = textureGrad(Diffuse, In.Texcoord, abs(Texcoord10 - Texcoord00), abs(Texcoord01 - Texcoord00));
+		// TODO: interpolatation param issue hasn't been updated in specification
 		vec2 Texcoord00 = interpolateAtOffset(vTexcoord, vec2(-0.5,-0.5));
 		vec2 Texcoord10 = interpolateAtOffset(vTexcoord, vec2( 0.5,-0.5));
 		vec2 Texcoord11 = interpolateAtOffset(vTexcoord, vec2( 0.5, 0.5));
