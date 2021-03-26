@@ -8,12 +8,6 @@ layout(std140, column_major) uniform;
 
 uniform sampler2D Diffuse;
 
-//in int gl_SampleID;
-//in vec2 gl_SamplePosition;
-//out int gl_SampleMask[];
-
-//uniform int gl_NumSamples;
-
 in vert
 {
 	vec2 Texcoord;
