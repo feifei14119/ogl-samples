@@ -195,9 +195,7 @@ private:
 	bool initFramebuffer()
 	{
 		glGenFramebuffers(framebuffer::MAX, &FramebufferName[0]);
-		glBindFramebuffer(GL_FRAMEBUFFER, FramebufferName[framebuffer::RENDER]);
 		glNamedFramebufferTextureEXT(FramebufferName[framebuffer::RENDER], GL_COLOR_ATTACHMENT0, TextureName[texture::MULTISAMPLE], 0);
-		glBindFramebuffer(GL_FRAMEBUFFER, FramebufferName[framebuffer::RESOLVE]);
 		glNamedFramebufferTextureEXT(FramebufferName[framebuffer::RESOLVE], GL_COLOR_ATTACHMENT0, TextureName[texture::COLORBUFFER], 0);
 
 		if(glCheckNamedFramebufferStatusEXT(FramebufferName[framebuffer::RENDER], GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
@@ -211,7 +209,6 @@ private:
 	bool initVertexArray()
 	{
 		glGenVertexArrays(1, &VertexArrayName);
-		glBindVertexArray(VertexArrayName);
 		glVertexArrayVertexAttribOffsetEXT(VertexArrayName, BufferName[buffer::VERTEX], semantic::attr::POSITION, 2, GL_FLOAT, GL_FALSE, sizeof(glf::vertex_v2fv2f), 0);
 		glVertexArrayVertexAttribOffsetEXT(VertexArrayName, BufferName[buffer::VERTEX], semantic::attr::TEXCOORD, 2, GL_FLOAT, GL_FALSE, sizeof(glf::vertex_v2fv2f), sizeof(glm::vec2));
 		glEnableVertexArrayAttribEXT(VertexArrayName, semantic::attr::POSITION);
