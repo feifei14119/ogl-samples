@@ -24,13 +24,10 @@ out gl_PerVertex
 	vec4 gl_Position;
 };
 
-out block
-{
-	vec2 Texcoord;
-} Out;
+out vec2 vTexcoord;
 
 void main()
 {
-	Out.Texcoord = Texcoord;
+	vTexcoord = Texcoord;
 	gl_Position = Transform.MVP * vec4(Position, 0.0, 1.0);
 }

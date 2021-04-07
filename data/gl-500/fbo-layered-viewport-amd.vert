@@ -1,5 +1,7 @@
 #version 420 core
 
+#extension GL_ARB_shader_viewport_layer_array : require
+
 #define POSITION	0
 #define COLOR		3
 #define TEXCOORD	4
