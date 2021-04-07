@@ -11,14 +11,12 @@ layout(std140, column_major) uniform;
 
 layout(binding = 0) uniform sampler2DArray Diffuse;
 
-in block
-{
-	vec2 Texcoord;
-} In;
+in vec2 vTexcoord;
 
 layout(location = FRAG_COLOR, index = 0) out vec4 Color;
 
 void main()
 {
-	Color = texture(Diffuse, vec3(interpolateAtSample(In.Texcoord, gl_SampleID), 0.0));
+	// TODO: interpolatation param issue hasn't been updated in specification
+	Color = texture(Diffuse, vec3(interpolateAtSample(vTexcoord, gl_SampleID), 0.0));
 }
