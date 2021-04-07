@@ -1,5 +1,7 @@
 #version 420 core
 
+#extension GL_ARB_shader_viewport_layer_array : require
+
 precision highp float;
 precision highp int;
 layout(std140, column_major) uniform;
